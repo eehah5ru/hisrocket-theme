@@ -1,8 +1,8 @@
 <?php
 // Zenphoto theme definition file
-$theme_description['name'] = 'zpminimal_v1.4.1a';
-$theme_description['author'] = 'gjr';
-$theme_description['version'] = '1.4.1a';
-$theme_description['date'] = '7/2/2011';
-$theme_description['desc'] = 'A ZenPhoto/ZenPage minimalistic theme.';
+$theme_description['name'] = 'hisrocket-single-image';
+$theme_description['author'] = 'eehah5ru';
+$theme_description['version'] = '0.0.1';
+$theme_description['date'] = '18/04/2012';
+$theme_description['desc'] = 'Hisrocket site theme that shows only one image per page';
 ?>
