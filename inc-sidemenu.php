@@ -1,7 +1,7 @@
 
-				<div id="sidemenu">
+				<div id="sidemenu" class="">
 					<?php if (function_exists('printAlbumMenuJump')) { printAlbumMenuJump('count',gettext('Home')); } ?>
-					<?php if (($zpmin_menu) && (function_exists('printCustomMenu'))) { printCustomMenu( $zpmin_menu, 'list','nav','active','','active',true,true,gettext('Home')); } else { ?>
+					<?php if (($zpmin_menu) && (function_exists('printCustomMenu'))) { printCustomMenu( $zpmin_menu, 'list-top','nav','active','','active',false,false, gettext('Home')); } else { ?>
 					<ul id="nav">
 						<li><a href="<?php echo html_encode(getGalleryIndexURL());?>" title="<?php echo ('Home'); ?>"><?php echo ('Home'); ?></a></li>
 						<li <?php if ($galleryactive) { ?>class="active" <?php } ?>><a href="<?php echo getCustomPageURL('gallery'); ?>" title="<?php echo gettext('Gallery'); ?>"><?php echo gettext('Gallery'); ?></a></li>

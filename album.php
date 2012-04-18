@@ -1,12 +1,10 @@
 <?php include ("inc-header.php"); ?>
-
-				<div id="breadcrumbs">
-					<h2><a href="<?php echo html_encode(getGalleryIndexURL());?>" title="<?php echo gettext('Home'); ?>"><?php echo gettext('Home'); ?></a> &raquo; <a href="<?php echo getCustomPageURL('gallery'); ?>" title="<?php echo gettext('Gallery Index'); ?>"><?php echo gettext('Gallery Index'); ?></a> &raquo; <?php printParentBreadcrumb('',' &raquo; ',' &raquo; '); ?> <?php printAlbumTitle(true);?></h2>
-				</div>
 			</div> <!-- close #header -->
-			<div id="content">
-				<div id="main"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
-					<div id="albums-wrap">
+			<div id="content" class="grid_12">
+				<div id="sidebar" class="grid_3 alpha">
+					<?php include ("inc-sidemenu.php"); ?>
+				</div>
+				<div id="albums-wrap" class="grid_9 omega">
 						<?php while (next_album()): ?>
 						<div class="album-maxspace">
 							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.shortenContent(getBareAlbumDesc(),300,'...'); ?>">
@@ -20,9 +18,13 @@
 						</div>
 						<?php endwhile; ?>
 					</div>
-					<div id="thumbs-wrap">
+					<h3 id="album-title" class="grid_9 omega"><?php printAlbumTitle(true); ?></h3>					
+
+				<div id="thumbs-wrap" class="grid_9 omega">
+						<?php $image_number = 0; ?>
 						<?php while (next_image()): ?>
-						<div class="thumb-maxspace">
+						<?php $image_number = $image_number + 1; ?>
+						<div class="thumb-maxspace grid_3 <?php echo $image_number % 3 == 1 ? 'alpha' : ($image_number % 3 == 0 ? 'omega' : '') ?>">
 							<a class="thumb-link" href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
 							<?php if (($zpmin_colorbox) && (!isImageVideo())) { ?>
 							<div class="cblinks">
@@ -31,27 +33,17 @@
 							</div>
 							<?php } ?>
 						</div>
+						<?php if ($image_number % 3 == 0) { ?>
+							<div class="clear">&nbsp;</div>
+						<?php } ?>
 						<?php endwhile; ?>
 					</div>
-					<?php if ( (hasPrevPage()) || (hasNextPage()) ) { ?>
-					<div id="pagination">
-						<?php printPageListWithNav("&larr; ".gettext("prev"), gettext("next")." &rarr;"); ?>
-					</div>
-					<?php } ?>
-					<?php if (function_exists('printGoogleMap')) { ?><div class="section"><?php setOption('gmap_width',550,false); printGoogleMap(); ?></div><?php } ?>
-					<?php if (function_exists('printRating')) { ?><div class="section"><?php printRating(); ?></div><?php } ?>
-					<?php if (function_exists('printCommentForm')) { ?><div class="section"><?php printCommentForm(); ?></div><?php } ?>
+
+				<?php if ( (hasPrevPage()) || (hasNextPage()) ) { ?>
+				<div id="pagination" class="grid_9 push_3">
+					<?php printPageListWithNav("&larr; ".gettext("prev"), gettext("next")." &rarr;"); ?>
 				</div>
-				<div id="sidebar"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
-					<div class="sidebar-divide">
-						<h3><?php printAlbumTitle(true); ?></h3>
-						<div class="sidebar-section"><?php printAlbumDate('','',null,true); ?></div>
-						<?php if ((getAlbumDesc()) || (zp_loggedin)) {?><div class="sidebar-section"><?php printAlbumDesc(true); ?></div><?php } ?>
-						<?php if ((getTags()) || (zp_loggedin)) {?><div class="sidebar-section"><?php printTags('links', gettext('<strong>Tags:</strong>').' ', 'taglist', ''); ?></div><?php } ?>
-						<?php if (function_exists('printSlideShowLink')) { ?><div class="sidebar-section"><div class="slideshow-link"><?php printSlideShowLink(gettext('View Slideshow')); ?></div></div><?php } ?>
-					</div>
-					<div class="sidebar-section"><?php include ("inc-sidemenu.php"); ?></div>
-				</div>
+				<?php } ?>
 			</div>
 
-<?php include ("inc-footer.php"); ?>			
+<?//php include ("inc-footer.php"); ?>			

@@ -4,6 +4,13 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
 		<link rel="stylesheet" type="text/css" href="<?php echo $_zp_themeroot; ?>/css/main.css" />
+		<link href="<?php echo $_zp_themeroot; ?>/css/grid960.css?column_width=60&amp;column_amount=12&amp;gutter_width=20" media="screen" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-1.7.1.js"></script>		
+		<script type="text/javascript">
+			$(document).ready(function() {
+			   $("#full-image").fadeToggle(400, "linear");
+			 });
+		</script>
 		<?php zp_apply_filter('theme_head'); ?>
 		<?php $showsearch=true; ?>
 		<?php $zpmin_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
@@ -82,12 +89,9 @@
 				$zpmin_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 				break;
 		} ?>	
-		<title><?php echo $zpmin_metatitle.getBareGalleryTitle(); ?></title>
+		<title><?php echo getGalleryTitle();?></title>
 		<meta name="description" content="<?php echo $zpmin_metadesc; ?>" />
 		
-		<!--[if lt IE 8]>
-		<style type="text/css">.album-maxspace,.thumb-maxspace{zoom:1;display:inline;}#search{padding:2px 6px 6px 6px;}</style>
-		<![endif]-->
 		<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS'));  ?>
 		<?php if (function_exists("printZenpageRSSHeaderLink")) { printZenpageRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
 		
@@ -112,17 +116,7 @@
 		$zpmin_album_thumb_maxspace_h = $zpmin_album_thumb_size + 17;
 		$cblinks_top = ($zpmin_img_thumb_size/2) - 8;
 		?>	
-		<style type="text/css">
-		.album-maxspace,.album-maxspace .thumb-link{
-			width:<?php echo $zpmin_album_thumb_maxspace_w; ?>px; 
-			height:<?php echo $zpmin_album_thumb_maxspace_h; ?>px; 
-		}
-		.thumb-maxspace,.thumb-maxspace .thumb-link{
-			width:<?php echo $zpmin_img_thumb_maxspace_w; ?>px; 
-			height:<?php echo $zpmin_img_thumb_maxspace_h; ?>px; 
-		}
-		.cblinks{top:<?php echo $cblinks_top; ?>px;}
-		</style>
+
 		<?php if ( (($zpmin_colorbox) || (($zpmin_finallink) == 'colorbox')) && ($cbscript) ) { ?>
 		<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/zp-extensions/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/css/cbStyles/<?php echo $zpmin_cbstyle; ?>/colorbox.css" type="text/css" media="screen"/>
@@ -138,29 +132,13 @@
 	</head>
 	<body>
 		<?php zp_apply_filter('theme_body_open'); ?>
-		<div id="wrapper">
-			<div id="header"<?php if (!$showsearch) { echo ' style="text-align:center;"'; } ?>>
-				<?php if ($zpmin_logo) { ?>
-				<div id="image-logo"><a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>"><img src="<?php echo $_zp_themeroot; ?>/images/<?php echo $zpmin_logo; ?>" /></a></div>
-				<?php } else { ?>
-				<h1 id="logo"><a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>"><?php echo getGalleryTitle();?></a></h1>
-				<?php } ?>
-				<?php if ($zpmin_social) { ?>
-				<div id="social">
-					<?php 
-					define('ZPMINFULLWEBPATH', PROTOCOL."://" . $_SERVER['HTTP_HOST'] );
-					if ($_zp_gallery_page == 'image.php') {	$sociallink = urlencode(ZPMINFULLWEBPATH.getImageLinkURL()); $socialtitle = urlencode(getBareImageTitle().": ".strip_tags(truncate_string(getBareImageDesc(),75,'...'))); }
-					if ($_zp_gallery_page == 'album.php') {	$sociallink = urlencode(ZPMINFULLWEBPATH.getAlbumLinkURL()); $socialtitle = urlencode(getBareAlbumTitle()." - ".strip_tags(truncate_string(getBareAlbumDesc(),75,'...'))); }
-					if (function_exists('getNewsURL')) {
-					if (($_zp_gallery_page == 'news.php') && (is_NewsArticle())) { $sociallink = urlencode(ZPMINFULLWEBPATH.getNewsURL(getNewsTitleLink())); $socialtitle = urlencode(getBareNewsTitle()." - ".strip_tags(truncate_string(getNewsContent(),75,'...'))); }
-					if ($_zp_gallery_page == 'pages.php') { $sociallink = urlencode(ZPMINFULLWEBPATH.getPageLinkURL(getPageTitleLink())); $socialtitle = urlencode(getBarePageTitle()." - ".strip_tags(truncate_string(getPageContent(),75,'...'))); }
-					}
-					if ($sociallink) { $twitterlink = file_get_contents("http://tinyurl.com/api-create.php?url=".$sociallink); ?>
-					<a href="http://facebook.com/share.php?u=<?php echo $sociallink; ?>&amp;title=<?php echo $socialtitle; ?>" target="_blank" class="f" title="<?php echo gettext('Share on Facebook'); ?>"></a>
-					<a href="http://twitter.com/home?status=<?php echo $socialtitle; ?> <?php echo $twitterlink; ?>" target="_blank" class="t" title="<?php echo gettext('Spread the word on Twitter'); ?>"></a>
-					<a href="http://digg.com/submit?phase=2&amp;url=<?php echo $sociallink; ?>&amp;title=<?php echo $socialtitle; ?>" target="_blank" class="di" title="<?php echo gettext('Bookmark on Digg'); ?>"></a>
-					<?php } ?>
+		<div id="wrapper" class="container container_12">
+			<div id="header" class="grid_12">
+				<h1 id="logo" class="grid_3 alpha">
+					<a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>">
+						<?php echo getGalleryTitle();?> 
+					</a>
+				</h1>
+				<div id="select-language" class="prefix_8 grid_1 omega">
+					<?php echo printLanguageSelector(); ?>
 				</div>
-				<?php } ?>
-				<?php if ($showsearch) { printSearchForm( '','searchform','',gettext('Search'),"$_zp_themeroot/images/drop.gif",null,null,"$_zp_themeroot/images/reset.gif" ); } ?>
-				

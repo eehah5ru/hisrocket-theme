@@ -12,7 +12,7 @@
 								} else {
 								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$zpmin_album_thumb_size);
 								} ?>
-								<span class="album-title"><?php echo shortenContent(getBareAlbumTitle(),25,'...'); ?></span>
+								<span class="album-title"><?php /*echo shortenContent(getBareAlbumTitle(),25,'...');*/ echo getBareAlbumTitle(); ?></span>
 							</a>
 						</div>
 						<?php endwhile; ?>
@@ -24,16 +24,18 @@
 					<?php } ?>
 				</div>
 				<div id="sidebar"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
-					<div class="sidebar-divide">
+					<!--div class="sidebar-divide">
 						<?php printGalleryDesc(true); ?>
-					</div>
+					</div-->
 					<?php include ("inc-sidemenu.php"); ?>
+					<!--
 					<?php if ($zenpage) { ?>
 					<div class="latest">
 						<?php printLatestNews(2); ?>
 					</div>
 					<?php } ?>
+					-->
 				</div>
 			</div>
 
-<?php include ("inc-footer.php"); ?>			
+<?php// include ("inc-footer.php"); ?>			
