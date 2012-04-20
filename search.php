@@ -4,8 +4,8 @@ $numimages = getNumImages();
 $numalbums = getNumAlbums();
 $total = $numimages + $numalbums;
 if ($zenpage && !isArchive()) {
-	$numpages = getNumPages(); if ($numpages > $zpmin_zpsearchcount) $numpages = $zpmin_zpsearchcount;
-	$numnews = getNumNews(); if ($numnews > $zpmin_zpsearchcount) $numnews = $zpmin_zpsearchcount;
+	$numpages = getNumPages(); if ($numpages > $hrsi_zpsearchcount) $numpages = $hrsi_zpsearchcount;
+	$numnews = getNumNews(); if ($numnews > $hrsi_zpsearchcount) $numnews = $hrsi_zpsearchcount;
 	$total = $total + $numnews + $numpages;
 } else {
 	$numpages = $numnews = 0;
@@ -24,15 +24,15 @@ if (!empty($searchdate)) {
 				</div>
 			</div> <!-- close #header -->
 			<div id="content">
-				<div id="main"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
+				<div id="main"<?php if ($hrsi_switch) echo ' class="switch"'; ?>>
 					<div id="albums-wrap">
 						<?php $c=0; while (next_album()): $c++; ?>
 						<div class="album-maxspace">
 							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo shortenContent(getBareAlbumDesc(),300,'...'); ?>">
-								<?php if ($zpmin_thumb_crop) {
-								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size,$zpmin_album_thumb_size);
+								<?php if ($hrsi_thumb_crop) {
+								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$hrsi_album_thumb_size,$hrsi_album_thumb_size,$hrsi_album_thumb_size,$hrsi_album_thumb_size);
 								} else {
-								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$zpmin_album_thumb_size);
+								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$hrsi_album_thumb_size);
 								} ?>
 								<span class="album-title"><?php echo shortenContent(getBareAlbumTitle(),25,'...'); ?></span>
 							</a>
@@ -43,7 +43,7 @@ if (!empty($searchdate)) {
 						<?php while (next_image()): $c++; ?>
 						<div class="thumb-maxspace">
 							<a class="thumb-link" href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
-							<?php if (($zpmin_colorbox) && ($cb) && (!isImageVideo())) { ?>
+							<?php if (($hrsi_colorbox) && ($cb) && (!isImageVideo())) { ?>
 							<div class="cblinks">
 								<a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/zoom.png" /></a>
 								<a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/details.png" /></a>
@@ -62,7 +62,7 @@ if (!empty($searchdate)) {
 					<?php if ($_zp_page == 1) { //test of zenpage searches
 					if ($numpages > 0) {
 					$zpc = 0;
-					while (($zpc < $zpmin_zpsearchcount) && (next_page())) {
+					while (($zpc < $hrsi_zpsearchcount) && (next_page())) {
 						$zpc++; $c++; ?>
 						<div class="news-truncate"> 
 							<h2><?php printPageTitlelink(); ?></h2>
@@ -72,7 +72,7 @@ if (!empty($searchdate)) {
 					}
 					if ($numnews > 0) {
 					$zpc = 0;
-					while (($zpc < $zpmin_zpsearchcount) && (next_news())) {
+					while (($zpc < $hrsi_zpsearchcount) && (next_news())) {
 						$zpc++; $c++; ?>
 						<div class="news-truncate"> 
 							<h2><?php printNewsTitleLink(); ?></h2>	
@@ -86,7 +86,7 @@ if (!empty($searchdate)) {
 					} ?>	
 					<?php if ($c == 0) { echo "<h3>".gettext("Sorry, no matches found.")."</h3>"; } ?>
 				</div>
-				<div id="sidebar"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
+				<div id="sidebar"<?php if ($hrsi_switch) echo ' class="switch"'; ?>>
 					<div class="sidebar-divide">
 						<?php printGalleryDesc(true); ?>
 						<?php if (($c > 0) && (function_exists('printSlideShowLink'))) { ?><div class="sidebar-section"><div class="slideshow-link"><?php printSlideShowLink(gettext('View Slideshow')); ?></div></div><?php } ?>

@@ -5,7 +5,7 @@
 				</div>
 			</div> <!-- close #header -->
 			<div id="content">
-				<div id="main"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
+				<div id="main"<?php if ($hrsi_switch) echo ' class="switch"'; ?>>
 					<div id="gallery-archive" class="archive">
 						<h4><?php echo gettext('Gallery Archive'); ?></h4>
 						<?php printAllDates('archive-list','year','month','desc'); ?>
@@ -20,7 +20,7 @@
 						<?php } ?>
 					</div>
 				</div>
-				<div id="sidebar"<?php if ($zpmin_switch) echo ' class="switch"'; ?>>
+				<div id="sidebar"<?php if ($hrsi_switch) echo ' class="switch"'; ?>>
 					<div class="sidebar-divide">
 						<?php printGalleryDesc(true); ?>
 					</div>

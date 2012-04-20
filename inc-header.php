@@ -13,84 +13,84 @@
 		</script>
 		<?php zp_apply_filter('theme_head'); ?>
 		<?php $showsearch=true; ?>
-		<?php $zpmin_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
+		<?php $hrsi_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 		switch ($_zp_gallery_page) {
 			case 'index.php':
 				require_once (ZENFOLDER."/zp-extensions/image_album_statistics.php");
 				$showsearch=false;
 				break;
 			case 'album.php':
-				$zpmin_metatitle = getBareAlbumTitle().' | ';
-				$zpmin_metadesc = truncate_string(getBareAlbumDesc(),150,'...');
+				$hrsi_metatitle = getBareAlbumTitle().' | ';
+				$hrsi_metadesc = truncate_string(getBareAlbumDesc(),150,'...');
 				printRSSHeaderLink('Album',getAlbumTitle());
 				$galleryactive = true;
 				$cbscript = true;
 				break;
 			case 'image.php':
-				$zpmin_metatitle = getBareImageTitle().' | ';
-				$zpmin_metadesc = truncate_string(getBareImageDesc(),150,'...');
+				$hrsi_metatitle = getBareImageTitle().' | ';
+				$hrsi_metadesc = truncate_string(getBareImageDesc(),150,'...');
 				$galleryactive = true;
 				$cbscript = true;
 				break;
 			case 'archive.php':
-				$zpmin_metatitle = gettext("Archive View").' | ';
+				$hrsi_metatitle = gettext("Archive View").' | ';
 				break;
 			case 'search.php':
-				$zpmin_metatitle = gettext('Search')." | ".getSearchWords().' | ';
+				$hrsi_metatitle = gettext('Search')." | ".getSearchWords().' | ';
 				$galleryactive = true;
 				$cbscript = true;
 				break;
 			case 'pages.php':
-				$zpmin_metatitle = getBarePageTitle().' | ';
-				$zpmin_metadesc = strip_tags(truncate_string(getPageContent(),150,'...'));
+				$hrsi_metatitle = getBarePageTitle().' | ';
+				$hrsi_metadesc = strip_tags(truncate_string(getPageContent(),150,'...'));
 				$cbscript = true;
 				break;
 			case 'news.php':
 				if (is_NewsArticle()) {
-				$zpmin_metatitle = gettext('News').' | '.getBareNewsTitle().' | ';
-				$zpmin_metadesc = strip_tags(truncate_string(getNewsContent(),150,'...'));
+				$hrsi_metatitle = gettext('News').' | '.getBareNewsTitle().' | ';
+				$hrsi_metadesc = strip_tags(truncate_string(getNewsContent(),150,'...'));
 				} else if ($_zp_current_category) {
-				$zpmin_metatitle = gettext('News').' | '.$_zp_current_category->getTitle().' | ';
-				$zpmin_metadesc = strip_tags(truncate_string(getNewsCategoryDesc(),150,'...'));
+				$hrsi_metatitle = gettext('News').' | '.$_zp_current_category->getTitle().' | ';
+				$hrsi_metadesc = strip_tags(truncate_string(getNewsCategoryDesc(),150,'...'));
 				} else if (getCurrentNewsArchive()) {
-				$zpmin_metatitle = gettext('News').' | '.getCurrentNewsArchive().' | ';
+				$hrsi_metatitle = gettext('News').' | '.getCurrentNewsArchive().' | ';
 				} else {
-				$zpmin_metatitle = gettext('News').' | ';
+				$hrsi_metatitle = gettext('News').' | ';
 				}
 				$cbscript = true;
 				break;
 			case 'slideshow.php':
-				$zpmin_metatitle = getBareAlbumTitle().' | '.gettext('Slideshow').' | ';
+				$hrsi_metatitle = getBareAlbumTitle().' | '.gettext('Slideshow').' | ';
 				printSlideShowJS(); 
 				echo '<link rel="stylesheet" href="'.$_zp_themeroot.'/css/slideshow.css" type="text/css" />';
 				$showsearch=false;
 				break;
 			case 'contact.php':
-				$zpmin_metatitle = gettext('Contact').' | ';
+				$hrsi_metatitle = gettext('Contact').' | ';
 				break;
 			case 'login.php':
-				$zpmin_metatitle = gettext('Login').' | ';
+				$hrsi_metatitle = gettext('Login').' | ';
 				break;
 			case 'register.php':
-				$zpmin_metatitle = gettext('Register').' | ';
+				$hrsi_metatitle = gettext('Register').' | ';
 				break;
 			case 'gallery.php':
-				$zpmin_metatitle = gettext('Gallery Index').' | ';
+				$hrsi_metatitle = gettext('Gallery Index').' | ';
 				$galleryactive = true;
 				break;
 			case 'password.php':
-				$zpmin_metatitle = gettext('Password Required').' | ';
+				$hrsi_metatitle = gettext('Password Required').' | ';
 				break;
 			case '404.php':
-				$zpmin_metatitle = gettext('404 Not Found...').' | ';
+				$hrsi_metatitle = gettext('404 Not Found...').' | ';
 				break;
 			default:
-				$zpmin_metatitle = '';
-				$zpmin_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
+				$hrsi_metatitle = '';
+				$hrsi_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 				break;
 		} ?>	
 		<title><?php echo getGalleryTitle();?></title>
-		<meta name="description" content="<?php echo $zpmin_metadesc; ?>" />
+		<meta name="description" content="<?php echo $hrsi_metadesc; ?>" />
 		
 		<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS'));  ?>
 		<?php if (function_exists("printZenpageRSSHeaderLink")) { printZenpageRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
@@ -98,28 +98,28 @@
 		<?php
 		$zenpage = getOption('zp_plugin_zenpage');
 		//$cb = getOption('zp_plugin_colorbox');
-		if (!is_null(getOption('zpmin_finallink'))) { $zpmin_finallink = getOption('zpmin_finallink'); } else { $zpmin_finallink = 'nolink'; }
-		if (!is_null(getOption('zpmin_zpsearchcount'))) { $zpmin_zpsearchcount = getOption('zpmin_zpsearchcount'); } else { $zpmin_zpsearchcount = 2; }
-		if (!is_null(getOption('zpmin_disablemeta'))) { $zpmin_disablemeta = getOption('zpmin_disablemeta'); } else { $zpmin_disablemeta = false; }
-		if (!is_null(getOption('zpmin_colorbox'))) { $zpmin_colorbox = getOption('zpmin_colorbox'); } else { $zpmin_colorbox = true; }
-		if (!is_null(getOption('zpmin_cbstyle'))) { $zpmin_cbstyle = getOption('zpmin_cbstyle'); } else { $zpmin_cbstyle = 'style3'; }
-		if (!is_null(getOption('zpmin_logo'))) { $zpmin_logo = getOption('zpmin_logo'); } else { $zpmin_logo = ''; }
-		if (!is_null(getOption('zpmin_menu'))) { $zpmin_menu = getOption('zpmin_menu'); } else { $zpmin_menu = ''; }
-		if (!is_null(getOption('zpmin_social'))) { $zpmin_social = getOption('zpmin_social'); } else { $zpmin_social = true; }
-		if (!is_null(getOption('zpmin_switch'))) { $zpmin_switch = getOption('zpmin_switch'); } else { $zpmin_switch = false; }
-		$zpmin_img_thumb_size=getOption('thumb_size'); 
-		if (is_numeric(getOption('zpmin_album_thumb_size'))) { $zpmin_album_thumb_size = getOption('zpmin_album_thumb_size'); } else { $zpmin_album_thumb_size = 158; }
-		$zpmin_thumb_crop=getOption('thumb_crop');
-		$zpmin_img_thumb_maxspace_w = $zpmin_img_thumb_size + 2;
-		$zpmin_img_thumb_maxspace_h = $zpmin_img_thumb_size + 2;
-		$zpmin_album_thumb_maxspace_w = $zpmin_album_thumb_size + 2;
-		$zpmin_album_thumb_maxspace_h = $zpmin_album_thumb_size + 17;
-		$cblinks_top = ($zpmin_img_thumb_size/2) - 8;
+		if (!is_null(getOption('hrsi_finallink'))) { $hrsi_finallink = getOption('hrsi_finallink'); } else { $hrsi_finallink = 'nolink'; }
+		if (!is_null(getOption('hrsi_zpsearchcount'))) { $hrsi_zpsearchcount = getOption('hrsi_zpsearchcount'); } else { $hrsi_zpsearchcount = 2; }
+		if (!is_null(getOption('hrsi_disablemeta'))) { $hrsi_disablemeta = getOption('hrsi_disablemeta'); } else { $hrsi_disablemeta = false; }
+		if (!is_null(getOption('hrsi_colorbox'))) { $hrsi_colorbox = getOption('hrsi_colorbox'); } else { $hrsi_colorbox = true; }
+		if (!is_null(getOption('hrsi_cbstyle'))) { $hrsi_cbstyle = getOption('hrsi_cbstyle'); } else { $hrsi_cbstyle = 'style3'; }
+		if (!is_null(getOption('hrsi_logo'))) { $hrsi_logo = getOption('hrsi_logo'); } else { $hrsi_logo = ''; }
+		if (!is_null(getOption('hrsi_menu'))) { $hrsi_menu = getOption('hrsi_menu'); } else { $hrsi_menu = ''; }
+		if (!is_null(getOption('hrsi_social'))) { $hrsi_social = getOption('hrsi_social'); } else { $hrsi_social = true; }
+		if (!is_null(getOption('hrsi_switch'))) { $hrsi_switch = getOption('hrsi_switch'); } else { $hrsi_switch = false; }
+		$hrsi_img_thumb_size=getOption('thumb_size'); 
+		if (is_numeric(getOption('hrsi_album_thumb_size'))) { $hrsi_album_thumb_size = getOption('hrsi_album_thumb_size'); } else { $hrsi_album_thumb_size = 158; }
+		$hrsi_thumb_crop=getOption('thumb_crop');
+		$hrsi_img_thumb_maxspace_w = $hrsi_img_thumb_size + 2;
+		$hrsi_img_thumb_maxspace_h = $hrsi_img_thumb_size + 2;
+		$hrsi_album_thumb_maxspace_w = $hrsi_album_thumb_size + 2;
+		$hrsi_album_thumb_maxspace_h = $hrsi_album_thumb_size + 17;
+		$cblinks_top = ($hrsi_img_thumb_size/2) - 8;
 		?>	
 
-		<?php if ( (($zpmin_colorbox) || (($zpmin_finallink) == 'colorbox')) && ($cbscript) ) { ?>
+		<?php if ( (($hrsi_colorbox) || (($hrsi_finallink) == 'colorbox')) && ($cbscript) ) { ?>
 		<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/zp-extensions/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/css/cbStyles/<?php echo $zpmin_cbstyle; ?>/colorbox.css" type="text/css" media="screen"/>
+		<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/css/cbStyles/<?php echo $hrsi_cbstyle; ?>/colorbox.css" type="text/css" media="screen"/>
 		<script type="text/javascript">
 			// <!-- <![CDATA[
 			$(document).ready(function(){
