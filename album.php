@@ -10,14 +10,14 @@
 					<div class="scrollable">
 					<div id="scrollable-container" class="container">
 
-						<div id="post" class="post grid_6 suffix_1 alpha omega">
+						<div id="post" class="post grid_6 suffix_2 alpha">
 							<h2 class="top"><?php printAlbumTitle(true); ?></h2>
 							<?php echo getAlbumDesc() ?>
 						</div>
 						<?php $image_number = 0; ?>
 						<?php while (next_image()): ?>
 						<?php $image_number = $image_number + 1; ?>
-						<div id="image-wrap-<?php echo $image_number; ?>" class="grid_9 alpha omega">
+						<div id="image-wrap-<?php echo $image_number; ?>" class="an-image suffix_2">
 							<div id="full-image-<?php echo $image_number; ?>">
 								<?php if (($hrl_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
 								<?php if (($hrl_finallink)=='nolink') { printCustomSizedImage(getAnnotatedImageTitle(),620); } ?>
@@ -27,6 +27,9 @@
 
 						</div>
 						<?php endwhile; ?>
+						<div id="last-item" class="grid_1 suffix_3 omega">
+							&nbsp;
+						</div>
 					</div>
 					</div>
 				</div>
