@@ -1,0 +1,10 @@
+.scrollable {
+	overflow: hidden; 
+	height: 700px;
+	position: absolute;
+	width: 1000px;
+}
+
+.container {
+	width: 40000px;
+}
