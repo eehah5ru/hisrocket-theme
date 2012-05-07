@@ -136,7 +136,7 @@
 		<div id="wrapper" class="container container_12">
 			<div id="header" class="grid_12">
 				<h1 id="logo" class="grid_3 alpha">
-					<a href="<?php echo htmlspecialchars(getGalleryIndexURL());?>">
+					<a href="<?php echo FULLWEBPATH;?>">
 						<?php echo getGalleryTitle();?> 
 					</a>
 				</h1>
