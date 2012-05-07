@@ -11,8 +11,7 @@
 					<?php } ?>					
 				</div>
 				
-				<div id="post" class="grid_9 omega">
-					<h1><?php printPageTitle(); ?></h1>
+				<div id="post" class="grid_7 omega suffix_2">
 					<?php printPageContent(); printCodeblock(1); ?>
 				</div>
 
