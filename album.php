@@ -6,11 +6,14 @@
 					<?php include ("inc-sidemenu.php"); ?>
 				</div>
 				
-				<h3 id="album-title" class="grid_9 omega"><?php printAlbumTitle(true); ?></h3>					
-
 				<div id="thumbs-wrap" class="grid_9 omega">
 					<div class="scrollable">
 					<div id="scrollable-container" class="container">
+
+						<div id="post" class="post grid_6 suffix_1 alpha omega">
+							<h2 class="top"><?php printAlbumTitle(true); ?></h2>
+							<?php echo getAlbumDesc() ?>
+						</div>
 						<?php $image_number = 0; ?>
 						<?php while (next_image()): ?>
 						<?php $image_number = $image_number + 1; ?>

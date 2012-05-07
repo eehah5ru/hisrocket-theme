@@ -10,18 +10,27 @@
 		<link href="<?php echo $_zp_themeroot; ?>/css/linear.css" rel="stylesheet" type="text/css"/>		
 
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-1.7.1.js"></script>		
+		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-ui-1.8.18.custom.min.js"></script>				
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery.mousewheel.js"></script>				
+		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery.smoothscroll.js"></script>						
+		
 		<script type="text/javascript">
 			$(document).ready(function() {
 //			   $("#full-image").fadeToggle(400, "linear");
 				$('.scrollable').width($(document).innerWidth() - $('.scrollable').offset().left - 15);
+
 				$('.scrollable').css({
 				           'cursor' : 'none'
-				        });
+				});
+
+				// $('div.scrollable').smoothScroll();
+
 			 });
-			
+
+
 			jQuery(function($) {
 				$('.scrollable').data('scrollLeft', -1).bind('mousewheel', function(event, delta) {
+
 					if ( (!this.scrollLeft && delta > 0) || (this.scrollLeft == $(this).data('scrollLeft') && delta < 0) ) {
 					         return true; //данный блок необходим для того, чтобы перестать блокировать вертикальный скролл, если горизонтальный закончился
 					}
@@ -32,14 +41,8 @@
 					return false; //отключить вертикальный
 				});
 			});
+		
 
-/*			
-			$("#scrollable-container")..bind("mousewheel",function(ev, delta) {
-				alert("1111");
-			    var scrollLeft = $(window).scrollLeft();
-			    $(this).scrollLeft(scrollLeft - Math.round(delta * 40));
-			});			
-*/
 		</script>
 		<?php zp_apply_filter('theme_head'); ?>
 		<?php $showsearch=true; ?>
@@ -169,6 +172,3 @@
 						<?php echo getGalleryTitle();?> 
 					</a>
 				</h1>
-				<div id="select-language" class="prefix_8 grid_1 omega">
-					<?php echo printLanguageSelector(); ?>
-				</div>

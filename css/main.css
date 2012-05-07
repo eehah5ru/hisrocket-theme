@@ -30,7 +30,8 @@ a:hover{text-decoration:none;color:#000;}
 }
 
 #select-language {
-	text-align:right;
+	margin-top: 18px;
+	text-align:left;
 }
 
 .flags {
