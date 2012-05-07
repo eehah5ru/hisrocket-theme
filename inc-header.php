@@ -140,6 +140,3 @@
 						<?php echo getGalleryTitle();?> 
 					</a>
 				</h1>
-				<div id="select-language" class="prefix_8 grid_1 omega">
-					<?php echo printLanguageSelector(); ?>
-				</div>
