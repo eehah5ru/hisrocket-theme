@@ -51,10 +51,8 @@
 						$randomImage = getRandomImages($hrsi_functionoption);
 						if (is_object($randomImage) && $randomImage->exists) {
 							$randomImageURL = html_encode(getURL($randomImage));
-							echo '<a href="' . $randomImageURL . '">';
 							$html =  "<img src=\"".html_encode($randomImage->getCustomImage(620, NULL, NULL, NULL, NULL, NULL, NULL, TRUE))."\" alt=\"" . html_encode($randomImage->getTitle()) . "\" />\n";
 							echo zp_apply_filter('custom_image_html', $html, false);
-							echo "</a>";
 						}
 						} ?>
 					</div>
