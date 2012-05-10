@@ -8,38 +8,66 @@
 		<link href="<?php echo $_zp_themeroot; ?>/css/grid960.css?column_width=60&amp;column_amount=12&amp;gutter_width=20" media="screen" rel="stylesheet" type="text/css"/>
 		<link href="<?php echo $_zp_themeroot; ?>/css/page.css" rel="stylesheet" type="text/css"/>		
 		<link href="<?php echo $_zp_themeroot; ?>/css/linear.css" rel="stylesheet" type="text/css"/>		
-
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-1.7.1.js"></script>		
+		<!--script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery.mobile-1.1.0.js"></script-->				
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-ui-1.8.18.custom.min.js"></script>				
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery.mousewheel.js"></script>				
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery.smoothscroll.js"></script>						
 		
 		<script type="text/javascript">
+			function isTouchDevice(){
+		  		return (typeof(window.ontouchstart) != 'undefined') ? true : false;
+			}
+			
+			function setScrollableContainerWidth() {
+				var result = 0;
+				
+				$('#scrollable-container').children().each(function() {
+					result += $(this).outerWidth();
+				});
+				
+				$('#scrollable-container').css({
+					'width' : result + 500
+				});
+			}
+					
 			$(document).ready(function() {
 //			   $("#full-image").fadeToggle(400, "linear");
-				$('.scrollable').width($(document).innerWidth() - $('.scrollable').offset().left - 15);
+				if (!isTouchDevice()) {
+					// $('.scrollable').width($(document).innerWidth() - $('.scrollable').offset().left - 15);
+					$('.scrollable').css({
+						'width' : $(document).innerWidth() - $('.scrollable').offset().left - 15
+					});
+					
+					setScrollableContainerWidth();
+				}
+				else {
+					setScrollableContainerWidth();					
+					
+					$('.scrollable').css({
+						'width' : $('#scrollable-container').outerWidth()
+					});
+				}
 
 				$('.scrollable').css({
 				           'cursor' : 'none'
 				});
 
-				// $('div.scrollable').smoothScroll();
-
 			 });
-
+		
 
 			jQuery(function($) {
 				$('.scrollable').data('scrollLeft', -1).bind('mousewheel', function(event, delta) {
-
-					if ( (!this.scrollLeft && delta > 0) || (this.scrollLeft == $(this).data('scrollLeft') && delta < 0) ) {
-					         return true; //данный блок необходим для того, чтобы перестать блокировать вертикальный скролл, если горизонтальный закончился
-					}
-
-					$(this).data('scrollLeft', this.scrollLeft); //сохраняем текущий скролл слева
-
-					this.scrollLeft -= (delta * 100); //на сколько прокрутить блок? (размер скролла)
-					return false; //отключить вертикальный
-				});
+				
+									if ( (!this.scrollLeft && delta > 0) || (this.scrollLeft == $(this).data('scrollLeft') && delta < 0) ) {
+									         return true; //данный блок необходим для того, чтобы перестать блокировать вертикальный скролл, если горизонтальный закончился
+									}
+				
+									$(this).data('scrollLeft', this.scrollLeft); //сохраняем текущий скролл слева
+				
+									this.scrollLeft -= (delta * 100); //на сколько прокрутить блок? (размер скролла)
+									return false; //отключить вертикальный
+								});
 			});
 		
 
