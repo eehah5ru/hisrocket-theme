@@ -89,6 +89,12 @@ class ThemeOptions {
 		
 		if ($option == 'hrsi_homeoption') {
 			echo '<select id="' . $option . '" name="' . $option . '"' . ">\n";
+			echo '<option value="none"';
+				if ($currentValue == "empty") { 
+				echo ' selected="selected">None</option>\n';
+				} else {
+				echo '>None</option>\n';
+				}
 			echo '<option value="random"';
 				if ($currentValue == "random") { 
 				echo ' selected="selected">Random</option>\n';
