@@ -42,19 +42,30 @@
 							case "random-daily":
 							$hrl_albumorimage = ''; $hrl_functionoption = 'daily';
 						break;
+							case "none":
+							$hrl_albumorimage = 'none'; $hrl_functionoption = 'none';
+						break;						
 						} ?>
-						<?php if ($hrl_albumorimage == 'image') {
+						<?php 
+						
+						if ($hrl_albumorimage == 'image') {
 							printImageStatistic(1,$hrl_functionoption,'',true,true,false,40,'',535,535,false);
-						} else if ($hrl_albumorimage == 'album') {
+						} 
+						else if ($hrl_albumorimage == 'album') {
 							printAlbumStatistic(1,$hrl_functionoption,true,true,false,40,'',535,535,false);
-						} else {
-						$randomImage = getRandomImages($hrl_functionoption);
-						if (is_object($randomImage) && $randomImage->exists) {
-							$randomImageURL = html_encode(getURL($randomImage));
-							$html =  "<img src=\"".html_encode($randomImage->getCustomImage(620, NULL, NULL, NULL, NULL, NULL, NULL, TRUE))."\" alt=\"" . html_encode($randomImage->getTitle()) . "\" />\n";
-							echo zp_apply_filter('custom_image_html', $html, false);
-						}
-						} ?>
+						} 
+						else if ($hrl_albumorimage == 'none') {
+							// print nothing
+						}						
+						else {
+							$randomImage = getRandomImages($hrl_functionoption);
+							if (is_object($randomImage) && $randomImage->exists) {
+								$randomImageURL = html_encode(getURL($randomImage));
+								$html =  "<img src=\"".html_encode($randomImage->getCustomImage(620, NULL, NULL, NULL, NULL, NULL, NULL, TRUE))."\" alt=\"" . html_encode($randomImage->getTitle()) . "\" />\n";
+								echo zp_apply_filter('custom_image_html', $html, false);
+							}
+						} 
+						?>
 					</div>
 				</div>			
 
