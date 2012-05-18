@@ -35,10 +35,10 @@
 					<div id="image-wrap" class="grid_9 omega">
 
 						<div id="full-image"  style="display:none">
-							<?php if (($hrsi_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
-							<?php if (($hrsi_finallink)=='nolink') { printCustomSizedImage(getAnnotatedImageTitle(),620); } ?>
-							<?php if (($hrsi_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
-							<?php if (($hrsi_finallink)=='standard-new') { ?><a target="_blank" href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
+							<?php if (($hrsi_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
+							<?php if (($hrsi_finallink)=='nolink') { printCustomSizedImage("",620); } ?>
+							<?php if (($hrsi_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>"><?php printCustomSizedImage("",620); ?></a><?php } ?>
+							<?php if (($hrsi_finallink)=='standard-new') { ?><a target="_blank" href="<?php echo html_encode(getFullImageURL());?>"><?php printCustomSizedImage("",620); ?></a><?php } ?>
 						</div>
 
 					</div>
