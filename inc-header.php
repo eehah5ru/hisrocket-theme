@@ -150,7 +150,7 @@
 				$hrl_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 				break;
 		} ?>	
-		<title><?php echo getGalleryTitle();?></title>
+		<title><?php echo getBareGalleryTitle();?></title>
 		<meta name="description" content="<?php echo $hrl_metadesc; ?>" />
 		
 		<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS'));  ?>
