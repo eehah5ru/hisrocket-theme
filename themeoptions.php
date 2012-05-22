@@ -12,16 +12,16 @@ require_once(SERVERPATH . "/" . ZENFOLDER . "/admin-functions.php");
 class ThemeOptions {
 	
 	function ThemeOptions() {
-		setOptionDefault('hrl_homeoption', '');
-		setOptionDefault('hrl_album_thumb_size', 158);
-		setOptionDefault('hrl_social', true);
-		setOptionDefault('hrl_switch', false);
-		setOptionDefault('hrl_menu', '');
-		setOptionDefault('hrl_logo', '');
-		setOptionDefault('hrl_colorbox', false);
-		setOptionDefault('hrl_cbstyle', 'style3');
-		setOptionDefault('hrl_zpsearchcount', 2);
-		setOptionDefault('hrl_finallink', 'nolink');
+		setOptionDefault('hrlfh_homeoption', '');
+		setOptionDefault('hrlfh_album_thumb_size', 158);
+		setOptionDefault('hrlfh_social', true);
+		setOptionDefault('hrlfh_switch', false);
+		setOptionDefault('hrlfh_menu', '');
+		setOptionDefault('hrlfh_logo', '');
+		setOptionDefault('hrlfh_colorbox', false);
+		setOptionDefault('hrlfh_cbstyle', 'style3');
+		setOptionDefault('hrlfh_zpsearchcount', 2);
+		setOptionDefault('hrlfh_finallink', 'nolink');
 
 	}
 	function getOptionsDisabled() {
@@ -29,24 +29,24 @@ class ThemeOptions {
 	}
 	function getOptionsSupported() {
 		return array(	
-			gettext('Home Page Image Option') => array('key' => 'hrl_homeoption', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the option for the single image on the homepage.  See Image-Album-Statistics plugin or Random Image functions for more information.')),
-			gettext('Final Image Link Option') => array('key' => 'hrl_finallink', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the option for the final image link on image.php.  Can either link to full image using standard zenphoto process (with core options), colorbox, or no link (default).')),		
-			gettext('Sidebar Position on the Right?') => array('key' => 'hrl_switch', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to reverse the sidebar and content area positions.  Default (unchecked) is the sidebar on the left.')),
-			gettext('Use colorbox on Album and Search Pages?') => array('key' => 'hrl_colorbox', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('If checked, 2 links appear when hovering images in album and search pages, one to popup the image in colorbox, and the other to go to the details page.')),
-			gettext('Colorbox Style') => array('key' => 'hrl_cbstyle', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Select the Colorbox style you wish to use (examples on the colorbox site).')),
-			gettext('Disable MetaData Display?') => array('key' => 'hrl_disablemeta', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to disable the metadata (EXIF,IPTC) display on the image page.')),
-			gettext('Social Networks Sharing Links?') => array('key' => 'hrl_social', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to enable the social sharing buttons on various pages (facebook, twitter, etc).')),
-			gettext('Album Thumb Size') => array('key' => 'hrl_album_thumb_size', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('Select the size of album thumbs. The thumb size above is for image thumbs. Album thumbs will also take on your selection of cropping or not.  A good size for albums is 158 (3 per row), and a good size above for image thumbs is 113 (4 per row). Make sure you also set the number of thumbs per row for images and albums above! ')),
-			gettext('Menu Name of Menu Manager') => array('key' => 'hrl_menu', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('If you use the menu manager plugin, enter the name of the menu you would like to use.  Make sure you create the menu in the menu manager backend! Or leave blank to use the theme menu.')),
-			gettext('ZenPage Search Results') => array('key' => 'hrl_zpsearchcount', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('If using Zenpage, enter the number of search results to display for each news and pages.  Default is 2 (4 total possible).')),
-			gettext('Logo Image') => array('key' => 'hrl_logo', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('Enter an image file located in the themes image directory, including extension, to use as an image logo. Or leave blank to use a text representation of your Gallery name.  As an example there is a logo.gif image in the images directory.'))
+			gettext('Home Page Image Option') => array('key' => 'hrlfh_homeoption', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the option for the single image on the homepage.  See Image-Album-Statistics plugin or Random Image functions for more information.')),
+			gettext('Final Image Link Option') => array('key' => 'hrlfh_finallink', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the option for the final image link on image.php.  Can either link to full image using standard zenphoto process (with core options), colorbox, or no link (default).')),		
+			gettext('Sidebar Position on the Right?') => array('key' => 'hrlfh_switch', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to reverse the sidebar and content area positions.  Default (unchecked) is the sidebar on the left.')),
+			gettext('Use colorbox on Album and Search Pages?') => array('key' => 'hrlfh_colorbox', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('If checked, 2 links appear when hovering images in album and search pages, one to popup the image in colorbox, and the other to go to the details page.')),
+			gettext('Colorbox Style') => array('key' => 'hrlfh_cbstyle', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Select the Colorbox style you wish to use (examples on the colorbox site).')),
+			gettext('Disable MetaData Display?') => array('key' => 'hrlfh_disablemeta', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to disable the metadata (EXIF,IPTC) display on the image page.')),
+			gettext('Social Networks Sharing Links?') => array('key' => 'hrlfh_social', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to enable the social sharing buttons on various pages (facebook, twitter, etc).')),
+			gettext('Album Thumb Size') => array('key' => 'hrlfh_album_thumb_size', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('Select the size of album thumbs. The thumb size above is for image thumbs. Album thumbs will also take on your selection of cropping or not.  A good size for albums is 158 (3 per row), and a good size above for image thumbs is 113 (4 per row). Make sure you also set the number of thumbs per row for images and albums above! ')),
+			gettext('Menu Name of Menu Manager') => array('key' => 'hrlfh_menu', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('If you use the menu manager plugin, enter the name of the menu you would like to use.  Make sure you create the menu in the menu manager backend! Or leave blank to use the theme menu.')),
+			gettext('ZenPage Search Results') => array('key' => 'hrlfh_zpsearchcount', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('If using Zenpage, enter the number of search results to display for each news and pages.  Default is 2 (4 total possible).')),
+			gettext('Logo Image') => array('key' => 'hrlfh_logo', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('Enter an image file located in the themes image directory, including extension, to use as an image logo. Or leave blank to use a text representation of your Gallery name.  As an example there is a logo.gif image in the images directory.'))
 						
 		);				
 	}
 	
 	function handleOption($option, $currentValue) {
 		
-		if ($option == 'hrl_cbstyle') {
+		if ($option == 'hrlfh_cbstyle') {
 			echo '<select style="width:200px;" id="' . $option . '" name="' . $option . '"' . ">\n";
 			
 			echo '<option value="style1"';
@@ -87,7 +87,7 @@ class ThemeOptions {
 			echo "</select>\n";
 		}
 		
-		if ($option == 'hrl_homeoption') {
+		if ($option == 'hrlfh_homeoption') {
 			echo '<select id="' . $option . '" name="' . $option . '"' . ">\n";
 			echo '<option value="none"';
 				if ($currentValue == "empty") { 
@@ -170,7 +170,7 @@ class ThemeOptions {
 			echo "</select>\n";
 		}
 		
-		if ($option == 'hrl_finallink') {
+		if ($option == 'hrlfh_finallink') {
 			echo '<select style="width:200px;" id="' . $option . '" name="' . $option . '"' . ">\n";
 			
 			echo '<option value="colorbox"';

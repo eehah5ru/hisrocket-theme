@@ -2,15 +2,15 @@
 
 			</div> <!-- close #header -->
 			<div id="content">
-				<div id="main"<?php if ($hrl_switch) echo ' class="switch"'; ?>>
+				<div id="main"<?php if ($hrlfh_switch) echo ' class="switch"'; ?>>
 					<div id="albums-wrap">
 						<?php while (next_album()): ?>
 						<div class="album-maxspace">
 							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.shortenContent(getAlbumDesc(),300,'...'); ?>">
-								<?php if ($hrl_thumb_crop) {
-								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$hrl_album_thumb_size,$hrl_album_thumb_size,$hrl_album_thumb_size,$hrl_album_thumb_size);
+								<?php if ($hrlfh_thumb_crop) {
+								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$hrlfh_album_thumb_size,$hrlfh_album_thumb_size,$hrlfh_album_thumb_size,$hrlfh_album_thumb_size);
 								} else {
-								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$hrl_album_thumb_size);
+								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$hrlfh_album_thumb_size);
 								} ?>
 								<span class="album-title"><?php /*echo shortenContent(getBareAlbumTitle(),25,'...');*/ echo getBareAlbumTitle(); ?></span>
 							</a>
@@ -23,7 +23,7 @@
 					</div>
 					<?php } ?>
 				</div>
-				<div id="sidebar"<?php if ($hrl_switch) echo ' class="switch"'; ?>>
+				<div id="sidebar"<?php if ($hrlfh_switch) echo ' class="switch"'; ?>>
 					<!--div class="sidebar-divide">
 						<?php printGalleryDesc(true); ?>
 					</div-->
