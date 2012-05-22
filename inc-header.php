@@ -29,9 +29,22 @@
 				$('#scrollable-container').css({
 					'width' : result + 500
 				});
+				
 			}
+			
+			function getScrollableContainerWidth() {
+				var result = 0;
+				
+				$('#scrollable-container').children().each(function() {
+					result += $(this).outerWidth();
+				});
+				
+				return result;
+			}			
+			
+			
 					
-			$(document).ready(function() {
+			$(window).load(function() {
 //			   $("#full-image").fadeToggle(400, "linear");
 				if (!isTouchDevice()) {
 					// $('.scrollable').width($(document).innerWidth() - $('.scrollable').offset().left - 15);
