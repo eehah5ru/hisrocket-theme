@@ -27,7 +27,7 @@
 						<?php } ?>
 					</ul>
 					<?php } ?>
-					<?php if (defined("printLanguageSelector")) { ?>
+					<?php if (!defined("printLanguageSelector")) { ?>
 						<div id="select-language">
 							<?php echo printLanguageSelector(); ?>
 						</div>
