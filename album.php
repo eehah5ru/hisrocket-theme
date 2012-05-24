@@ -21,7 +21,7 @@
 						
 						<div id="image-wrap-<?php echo $image_number; ?>" class="an-image suffix_1">
 						<?php if ((getAlbumDesc().length == 0)) { ?>
-							<div class="alpha image-nav grid_6 omega">
+							<div class="alpha image-nav">
 								<span><?php $image_number == 1 ? printAlbumTitle(true) : "&nbsp;"; ?></span>
 							</div>
 						<?php } ?>						
