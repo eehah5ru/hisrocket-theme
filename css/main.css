@@ -2,7 +2,22 @@
 
 a img{text-decoration:none!important;}
 /*body{font:11px/18px Georgia,Times,"Times New Roman",serif;color:#222;border-top:10px solid #eee;}*/
-body{font:11px/18px Georgia,Times,"Times New Roman",serif;color:#222;}
+/*
+* Old fonts style 
+*/
+body{
+	/*
+	* Old fonts style 
+	*/
+/*	font:11px/18px Georgia,Times,"Times New Roman",serif;
+	color:#222; */
+	font-family: Verdana, Lucida, sans-serif;
+	color: #444;
+	font-size: 11px;
+	line-height: 18px;
+/*	font-size: 1.1em;*/
+/*	line-height: 1.6em;	*/
+}
 /*a:link,a:active,a:visited{text-decoration:none;color:#2494DB;}*/
 a:link,a:active,a:visited{text-decoration:none;color:gray;}
 a:hover{text-decoration:none;color:#000;}
