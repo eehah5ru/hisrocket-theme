@@ -26,10 +26,10 @@
 							</div>
 						<?php } ?>						
 							<div id="full-image-<?php echo $image_number; ?>">
-								<?php if (($hrlfh_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 620); ?></a><?php } ?>
-								<?php if (($hrlfh_finallink)=='nolink') { printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 620); } ?>
-								<?php if (($hrlfh_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 620); ?></a><?php } ?>
-								<?php if (($hrlfh_finallink)=='standard-new') { ?><a target="_blank" href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 620); ?></a><?php } ?>
+								<?php if (($hrlfh_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 560); ?></a><?php } ?>
+								<?php if (($hrlfh_finallink)=='nolink') { printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 560); } ?>
+								<?php if (($hrlfh_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 560); ?></a><?php } ?>
+								<?php if (($hrlfh_finallink)=='standard-new') { ?><a target="_blank" href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, NULL, 560); ?></a><?php } ?>
 							</div>
 
 						</div>
