@@ -9,7 +9,7 @@
 				<div id="thumbs-wrap" class="grid_9 omega">
 					<div class="scrollable">
 					<div id="scrollable-container" class="container">
-						<?php if (!(getAlbumDesc().length == 0)) { ?>
+						<?php if (!(strlen(getAlbumDesc()) == 0)) { ?>
 							<div id="post" class="post grid_6 suffix_2 alpha">
 								<h2 class="top"><?php printAlbumTitle(true); ?></h2>
 								<?php echo getAlbumDesc() ?>
@@ -20,7 +20,7 @@
 						<?php $image_number = $image_number + 1; ?>
 						
 						<div id="image-wrap-<?php echo $image_number; ?>" class="an-image suffix_2">
-						<?php if ((getAlbumDesc().length == 0)) { ?>
+						<?php if (strlen(getAlbumDesc()) == 0) { ?>
 							<div class="alpha image-nav grid_6 omega">
 								<span><?php $image_number == 1 ? printAlbumTitle(true) : "&nbsp;"; ?></span>
 							</div>
