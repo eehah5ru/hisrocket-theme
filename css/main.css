@@ -12,7 +12,8 @@ body{
 /*	font:11px/18px Georgia,Times,"Times New Roman",serif;
 	color:#222; */
 	font-family: Verdana, Lucida, sans-serif;
-	color: #444;
+/*	color: #444;*/
+	color: #222;
 	font-size: 11px;
 	line-height: 18px;
 /*	font-size: 1.1em;*/
