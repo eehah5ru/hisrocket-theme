@@ -46,6 +46,7 @@
 					
 			$(window).load(function() {
 //			   $("#full-image").fadeToggle(400, "linear");
+/*
 				if (!isTouchDevice()) {
 					// $('.scrollable').width($(document).innerWidth() - $('.scrollable').offset().left - 15);
 					$('.scrollable').css({
@@ -55,17 +56,19 @@
 					setScrollableContainerWidth();
 				}
 				else {
+*/
 					setScrollableContainerWidth();					
 					
 					$('.scrollable').css({
 						'width' : $('#scrollable-container').outerWidth()
 					});
+/*
 				}
 
 				$('.scrollable').css({
 				           'cursor' : 'none'
 				});
-
+*/
 			 });
 		
 
