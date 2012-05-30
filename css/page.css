@@ -25,6 +25,10 @@
 	display:block;
 }
 
+.post p {
+	margin-top: 11px;
+	text-align: justify;
+}
 
 .post .top {
 	margin-top: 0px;
