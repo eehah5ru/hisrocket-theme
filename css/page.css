@@ -16,6 +16,11 @@
 	font-weight:normal;
 }
 
+.post p {
+	margin-top: 11px;
+	text-align: justify;
+}
+
 .post h2 {
 	margin-bottom:18px;	
 }
