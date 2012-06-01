@@ -5,7 +5,7 @@
 				</div>
 			</div> <!-- close #header -->
 			<div id="content">
-				<div id="main"<?php if ($hrl_switch) echo ' class="switch"'; ?>>
+				<div id="main"<?php if ($hrc_switch) echo ' class="switch"'; ?>>
 					<?php if (is_NewsArticle()) { ?>  
 					<div id="post">
 						<h1><?php printNewsTitle(); ?></h1>
@@ -47,7 +47,7 @@
 					<?php } ?>
 					<?php } ?> 
 				</div>
-				<div id="sidebar"<?php if ($hrl_switch) echo ' class="switch"'; ?>>
+				<div id="sidebar"<?php if ($hrc_switch) echo ' class="switch"'; ?>>
 					<?php if (getNewsExtraContent()) { ?>
 					<div class="sidebar-divide">
 						<div class="extra-content"><?php printNewsExtraContent(); ?></div>

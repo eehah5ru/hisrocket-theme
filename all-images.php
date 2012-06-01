@@ -8,10 +8,10 @@
 						<?php while (next_album()): ?>
 						<div class="album-maxspace">
 							<a class="thumb-link" href="<?php echo html_encode(getAlbumLinkURL());?>" title="<?php echo getNumAlbums().' '.gettext('subalbums').' / '.getNumImages().' '.gettext('images').' - '.shortenContent(getBareAlbumDesc(),300,'...'); ?>">
-								<?php if ($hrl_thumb_crop) {
-								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$hrl_album_thumb_size,$hrl_album_thumb_size,$hrl_album_thumb_size,$hrl_album_thumb_size);
+								<?php if ($hrc_thumb_crop) {
+								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),null,$hrc_album_thumb_size,$hrc_album_thumb_size,$hrc_album_thumb_size,$hrc_album_thumb_size);
 								} else {
-								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$hrl_album_thumb_size);
+								printCustomAlbumThumbImage(getAnnotatedAlbumTitle(),$hrc_album_thumb_size);
 								} ?>
 								<span class="album-title"><?php echo shortenContent(getBareAlbumTitle(),25,'...'); ?></span>
 							</a>
@@ -26,7 +26,7 @@
 						<?php $image_number = $image_number + 1; ?>
 						<div class="thumb-maxspace grid_3 <?php echo $image_number % 3 == 1 ? 'alpha' : ($image_number % 3 == 0 ? 'omega' : '') ?>">
 							<a class="thumb-link" href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><?php printImageThumb(getAnnotatedImageTitle()); ?></a>
-							<?php if (($hrl_colorbox) && (!isImageVideo())) { ?>
+							<?php if (($hrc_colorbox) && (!isImageVideo())) { ?>
 							<div class="cblinks">
 								<a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/zoom.png" /></a>
 								<a href="<?php echo html_encode(getImageLinkURL());?>" title="<?php echo getBareImageTitle(); ?>"><img src="<?php echo $_zp_themeroot; ?>/images/details.png" /></a>
