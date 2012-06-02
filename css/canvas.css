@@ -1,0 +1,24 @@
+#canvas {
+	width: 700px;
+	height: 700px;
+	margin-right: 40px;
+	margin-bottom: 40px;
+	position: relative;
+}
+
+.scrollable {
+	overflow: hidden; 
+	height: 700px;
+	position: absolute;
+	width: 1000px;
+}
+
+.container {
+/*	width: 40000px;*/
+}
+
+.an-image {
+	position: absolute;
+/*	display:block;*/
+/*	position: absolute;*/
+}
