@@ -16,7 +16,7 @@ class ThemeOptions {
 		setOptionDefault('hrc_album_thumb_size', 158);
 		setOptionDefault('hrc_social', true);
 		setOptionDefault('hrc_switch', false);
-		setOptionDefault('hrc_menu', '');
+		setOptionDefault('hrc_menu', 'default');
 		setOptionDefault('hrc_logo', '');
 		setOptionDefault('hrc_colorbox', false);
 		setOptionDefault('hrc_cbstyle', 'style3');
