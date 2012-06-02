@@ -16,7 +16,7 @@ class ThemeOptions {
 		setOptionDefault('hrl_album_thumb_size', 158);
 		setOptionDefault('hrl_social', true);
 		setOptionDefault('hrl_switch', false);
-		setOptionDefault('hrl_menu', '');
+		setOptionDefault('hrl_menu', 'default');
 		setOptionDefault('hrl_logo', '');
 		setOptionDefault('hrl_colorbox', false);
 		setOptionDefault('hrl_cbstyle', 'style3');
