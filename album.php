@@ -22,7 +22,7 @@
 						<?php $image_number = $image_number + 1; ?>
 						<div id="image-<?php echo $image_number; ?>" class="an-image" style="<?php echo printHCACSSForImage(); ?>">
 							<input type="hidden" value="<?php echo $_zp_current_image->getFileName(); ?>">
-							<?php printCustomSizedImage(getAnnotatedImageTitle(), NULL, getHCAWidth(), NULL, NULL, NULL, NULL, NULL, NULL, "img-".$image_number); ?>
+							<?php printCustomSizedImage(NULL, NULL, getHCAWidth(), NULL, NULL, NULL, NULL, NULL, NULL, "img-".$image_number); ?>
 						</div>
 					<?php endwhile; ?>
 				</div>
