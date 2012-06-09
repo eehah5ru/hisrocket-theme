@@ -18,8 +18,11 @@
 
 
 .post p {
-	margin-top: 11px;
+	margin-top: 18px;
 	text-align: justify;
+	width: inherit;
+	position: inherit;
+	float: inherit;
 }
 
 .post h2 {
