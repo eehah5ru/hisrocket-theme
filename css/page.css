@@ -16,6 +16,9 @@
 	font-weight:normal;
 }
 
+.post div {
+	text-align: justify;
+}
 
 .post p {
 	margin-top: 11px;
