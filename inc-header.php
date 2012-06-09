@@ -208,7 +208,6 @@
 		<?php } ?>
 		
 	<script type="text/javascript">
-
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '<?php echo $_zp_conf_vars['GOOGLE_ANALYTICS_TOKEN']?>']);
 		_gaq.push(['_trackPageview']);
@@ -221,8 +220,7 @@
 			var s = document.getElementsByTagName('script')[0]; 
 			s.parentNode.insertBefore(ga, s);
 		})();
-
-		</script>
+	</script>
 		
 	</head>
 	<body>
