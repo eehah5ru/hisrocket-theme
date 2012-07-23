@@ -90,84 +90,84 @@
 		</script>
 		<?php zp_apply_filter('theme_head'); ?>
 		<?php $showsearch=true; ?>
-		<?php $hrl_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
+		<?php $hrv_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 		switch ($_zp_gallery_page) {
 			case 'index.php':
 				require_once (ZENFOLDER."/zp-extensions/image_album_statistics.php");
 				$showsearch=false;
 				break;
 			case 'album.php':
-				$hrl_metatitle = getBareAlbumTitle().' | ';
-				$hrl_metadesc = truncate_string(getBareAlbumDesc(),150,'...');
+				$hrv_metatitle = getBareAlbumTitle().' | ';
+				$hrv_metadesc = truncate_string(getBareAlbumDesc(),150,'...');
 				printRSSHeaderLink('Album',getAlbumTitle());
 				$galleryactive = true;
 				$cbscript = true;
 				break;
 			case 'image.php':
-				$hrl_metatitle = getBareImageTitle().' | ';
-				$hrl_metadesc = truncate_string(getBareImageDesc(),150,'...');
+				$hrv_metatitle = getBareImageTitle().' | ';
+				$hrv_metadesc = truncate_string(getBareImageDesc(),150,'...');
 				$galleryactive = true;
 				$cbscript = true;
 				break;
 			case 'archive.php':
-				$hrl_metatitle = gettext("Archive View").' | ';
+				$hrv_metatitle = gettext("Archive View").' | ';
 				break;
 			case 'search.php':
-				$hrl_metatitle = gettext('Search')." | ".getSearchWords().' | ';
+				$hrv_metatitle = gettext('Search')." | ".getSearchWords().' | ';
 				$galleryactive = true;
 				$cbscript = true;
 				break;
 			case 'pages.php':
-				$hrl_metatitle = getBarePageTitle().' | ';
-				$hrl_metadesc = strip_tags(truncate_string(getPageContent(),150,'...'));
+				$hrv_metatitle = getBarePageTitle().' | ';
+				$hrv_metadesc = strip_tags(truncate_string(getPageContent(),150,'...'));
 				$cbscript = true;
 				break;
 			case 'news.php':
 				if (is_NewsArticle()) {
-				$hrl_metatitle = gettext('News').' | '.getBareNewsTitle().' | ';
-				$hrl_metadesc = strip_tags(truncate_string(getNewsContent(),150,'...'));
+				$hrv_metatitle = gettext('News').' | '.getBareNewsTitle().' | ';
+				$hrv_metadesc = strip_tags(truncate_string(getNewsContent(),150,'...'));
 				} else if ($_zp_current_category) {
-				$hrl_metatitle = gettext('News').' | '.$_zp_current_category->getTitle().' | ';
-				$hrl_metadesc = strip_tags(truncate_string(getNewsCategoryDesc(),150,'...'));
+				$hrv_metatitle = gettext('News').' | '.$_zp_current_category->getTitle().' | ';
+				$hrv_metadesc = strip_tags(truncate_string(getNewsCategoryDesc(),150,'...'));
 				} else if (getCurrentNewsArchive()) {
-				$hrl_metatitle = gettext('News').' | '.getCurrentNewsArchive().' | ';
+				$hrv_metatitle = gettext('News').' | '.getCurrentNewsArchive().' | ';
 				} else {
-				$hrl_metatitle = gettext('News').' | ';
+				$hrv_metatitle = gettext('News').' | ';
 				}
 				$cbscript = true;
 				break;
 			case 'slideshow.php':
-				$hrl_metatitle = getBareAlbumTitle().' | '.gettext('Slideshow').' | ';
+				$hrv_metatitle = getBareAlbumTitle().' | '.gettext('Slideshow').' | ';
 				printSlideShowJS(); 
 				echo '<link rel="stylesheet" href="'.$_zp_themeroot.'/css/slideshow.css" type="text/css" />';
 				$showsearch=false;
 				break;
 			case 'contact.php':
-				$hrl_metatitle = gettext('Contact').' | ';
+				$hrv_metatitle = gettext('Contact').' | ';
 				break;
 			case 'login.php':
-				$hrl_metatitle = gettext('Login').' | ';
+				$hrv_metatitle = gettext('Login').' | ';
 				break;
 			case 'register.php':
-				$hrl_metatitle = gettext('Register').' | ';
+				$hrv_metatitle = gettext('Register').' | ';
 				break;
 			case 'gallery.php':
-				$hrl_metatitle = gettext('Gallery Index').' | ';
+				$hrv_metatitle = gettext('Gallery Index').' | ';
 				$galleryactive = true;
 				break;
 			case 'password.php':
-				$hrl_metatitle = gettext('Password Required').' | ';
+				$hrv_metatitle = gettext('Password Required').' | ';
 				break;
 			case '404.php':
-				$hrl_metatitle = gettext('404 Not Found...').' | ';
+				$hrv_metatitle = gettext('404 Not Found...').' | ';
 				break;
 			default:
-				$hrl_metatitle = '';
-				$hrl_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
+				$hrv_metatitle = '';
+				$hrv_metadesc = truncate_string(getBareGalleryDesc(),150,'...');
 				break;
 		} ?>	
 		<title><?php echo getBareGalleryTitle();?></title>
-		<meta name="description" content="<?php echo $hrl_metadesc; ?>" />
+		<meta name="description" content="<?php echo $hrv_metadesc; ?>" />
 		
 		<?php printRSSHeaderLink('Gallery',gettext('Gallery RSS'));  ?>
 		<?php if (function_exists("printZenpageRSSHeaderLink")) { printZenpageRSSHeaderLink("News","", gettext('News RSS'), ""); } ?>
@@ -175,28 +175,28 @@
 		<?php
 		$zenpage = getOption('zp_plugin_zenpage');
 		//$cb = getOption('zp_plugin_colorbox');
-		if (!is_null(getOption('hrl_finallink'))) { $hrl_finallink = getOption('hrl_finallink'); } else { $hrl_finallink = 'nolink'; }
-		if (!is_null(getOption('hrl_zpsearchcount'))) { $hrl_zpsearchcount = getOption('hrl_zpsearchcount'); } else { $hrl_zpsearchcount = 2; }
-		if (!is_null(getOption('hrl_disablemeta'))) { $hrl_disablemeta = getOption('hrl_disablemeta'); } else { $hrl_disablemeta = false; }
-		if (!is_null(getOption('hrl_colorbox'))) { $hrl_colorbox = getOption('hrl_colorbox'); } else { $hrl_colorbox = true; }
-		if (!is_null(getOption('hrl_cbstyle'))) { $hrl_cbstyle = getOption('hrl_cbstyle'); } else { $hrl_cbstyle = 'style3'; }
-		if (!is_null(getOption('hrl_logo'))) { $hrl_logo = getOption('hrl_logo'); } else { $hrl_logo = ''; }
-		if (!is_null(getOption('hrl_menu'))) { $hrl_menu = getOption('hrl_menu'); } else { $hrl_menu = ''; }
-		if (!is_null(getOption('hrl_social'))) { $hrl_social = getOption('hrl_social'); } else { $hrl_social = true; }
-		if (!is_null(getOption('hrl_switch'))) { $hrl_switch = getOption('hrl_switch'); } else { $hrl_switch = false; }
-		$hrl_img_thumb_size=getOption('thumb_size'); 
-		if (is_numeric(getOption('hrl_album_thumb_size'))) { $hrl_album_thumb_size = getOption('hrl_album_thumb_size'); } else { $hrl_album_thumb_size = 158; }
-		$hrl_thumb_crop=getOption('thumb_crop');
-		$hrl_img_thumb_maxspace_w = $hrl_img_thumb_size + 2;
-		$hrl_img_thumb_maxspace_h = $hrl_img_thumb_size + 2;
-		$hrl_album_thumb_maxspace_w = $hrl_album_thumb_size + 2;
-		$hrl_album_thumb_maxspace_h = $hrl_album_thumb_size + 17;
-		$cblinks_top = ($hrl_img_thumb_size/2) - 8;
+		if (!is_null(getOption('hrv_finallink'))) { $hrv_finallink = getOption('hrv_finallink'); } else { $hrv_finallink = 'nolink'; }
+		if (!is_null(getOption('hrv_zpsearchcount'))) { $hrv_zpsearchcount = getOption('hrv_zpsearchcount'); } else { $hrv_zpsearchcount = 2; }
+		if (!is_null(getOption('hrv_disablemeta'))) { $hrv_disablemeta = getOption('hrv_disablemeta'); } else { $hrv_disablemeta = false; }
+		if (!is_null(getOption('hrv_colorbox'))) { $hrv_colorbox = getOption('hrv_colorbox'); } else { $hrv_colorbox = true; }
+		if (!is_null(getOption('hrv_cbstyle'))) { $hrv_cbstyle = getOption('hrv_cbstyle'); } else { $hrv_cbstyle = 'style3'; }
+		if (!is_null(getOption('hrv_logo'))) { $hrv_logo = getOption('hrv_logo'); } else { $hrv_logo = ''; }
+		if (!is_null(getOption('hrv_menu'))) { $hrv_menu = getOption('hrv_menu'); } else { $hrv_menu = ''; }
+		if (!is_null(getOption('hrv_social'))) { $hrv_social = getOption('hrv_social'); } else { $hrv_social = true; }
+		if (!is_null(getOption('hrv_switch'))) { $hrv_switch = getOption('hrv_switch'); } else { $hrv_switch = false; }
+		$hrv_img_thumb_size=getOption('thumb_size'); 
+		if (is_numeric(getOption('hrv_album_thumb_size'))) { $hrv_album_thumb_size = getOption('hrv_album_thumb_size'); } else { $hrv_album_thumb_size = 158; }
+		$hrv_thumb_crop=getOption('thumb_crop');
+		$hrv_img_thumb_maxspace_w = $hrv_img_thumb_size + 2;
+		$hrv_img_thumb_maxspace_h = $hrv_img_thumb_size + 2;
+		$hrv_album_thumb_maxspace_w = $hrv_album_thumb_size + 2;
+		$hrv_album_thumb_maxspace_h = $hrv_album_thumb_size + 17;
+		$cblinks_top = ($hrv_img_thumb_size/2) - 8;
 		?>	
 
-		<?php if ( (($hrl_colorbox) || (($hrl_finallink) == 'colorbox')) && ($cbscript) ) { ?>
+		<?php if ( (($hrv_colorbox) || (($hrv_finallink) == 'colorbox')) && ($cbscript) ) { ?>
 		<script src="<?php echo FULLWEBPATH . "/" . ZENFOLDER ?>/zp-extensions/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/css/cbStyles/<?php echo $hrl_cbstyle; ?>/colorbox.css" type="text/css" media="screen"/>
+		<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/css/cbStyles/<?php echo $hrv_cbstyle; ?>/colorbox.css" type="text/css" media="screen"/>
 		<script type="text/javascript">
 			// <!-- <![CDATA[
 			$(document).ready(function(){

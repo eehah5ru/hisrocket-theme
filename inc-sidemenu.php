@@ -1,7 +1,7 @@
 
 				<div id="sidemenu" class="">
 					<?php if (function_exists('printAlbumMenuJump')) { printAlbumMenuJump('count',gettext('Home')); } ?>
-					<?php if (($hrl_menu) && (function_exists('printHisRocketCustomMenu'))) { printHisRocketCustomMenu( $hrl_menu, 'list','nav','active','','active',2,false, gettext('Home')); 
+					<?php if (($hrv_menu) && (function_exists('printHisRocketCustomMenu'))) { printHisRocketCustomMenu( $hrv_menu, 'list','nav','active','','active',2,false, gettext('Home')); 
 					} else { ?>
 					<ul id="nav">
 						<li><a href="<?php echo html_encode(getGalleryIndexURL());?>" title="<?php echo ('Home'); ?>"><?php echo ('Home'); ?></a></li>

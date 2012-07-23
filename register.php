@@ -5,14 +5,14 @@
 				</div>
 			</div> <!-- close #header -->
 			<div id="content">
-				<div id="main"<?php if ($hrl_switch) echo ' class="switch"'; ?>>
+				<div id="main"<?php if ($hrv_switch) echo ' class="switch"'; ?>>
 					<div id="random-image">
 						<?php printRandomImages(1,null,'all','',190,225,true); ?>
 					</div>
 					<h2><?php echo gettext('User Registration') ?></h2>
 					<?php printRegistrationForm(); ?>
 				</div>
-				<div id="sidebar"<?php if ($hrl_switch) echo ' class="switch"'; ?>>
+				<div id="sidebar"<?php if ($hrv_switch) echo ' class="switch"'; ?>>
 					<div class="sidebar-divide">
 						<?php printGalleryDesc(true); ?>
 					</div>
