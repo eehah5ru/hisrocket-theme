@@ -7,7 +7,7 @@
 
 		<link href="<?php echo $_zp_themeroot; ?>/css/grid960.css?column_width=60&amp;column_amount=12&amp;gutter_width=20" media="screen" rel="stylesheet" type="text/css"/>
 		<link href="<?php echo $_zp_themeroot; ?>/css/page.css" rel="stylesheet" type="text/css"/>		
-		<link href="<?php echo $_zp_themeroot; ?>/css/linear.css" rel="stylesheet" type="text/css"/>		
+		<link href="<?php echo $_zp_themeroot; ?>/css/vertical.css" rel="stylesheet" type="text/css"/>		
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-1.7.1.js"></script>		
 		<!--script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery.mobile-1.1.0.js"></script-->				
 		<script type="text/javascript" src="<?php echo $_zp_themeroot; ?>/javascript/jquery-ui-1.8.18.custom.min.js"></script>				

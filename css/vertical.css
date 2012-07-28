@@ -1,0 +1,26 @@
+.scrollable {
+	overflow: hidden; 
+	height: 700px;
+	position: absolute;
+	width: 1000px;
+}
+
+.container {
+/*	width: 40000px;*/
+}
+
+.an-image {
+/*	display:inline;
+	float: left;
+	position: relative;*/
+	margin-top: 6px;
+/*	margin-right: 10px;*/
+}
+
+.album-desc {
+	margin-bottom: 0px;
+}
+
+.bottom-space {
+	height: 40px;
+}
