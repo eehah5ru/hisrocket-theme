@@ -24,3 +24,7 @@
 .bottom-space {
 	height: 40px;
 }
+
+.top {
+	margin-top: 0px;
+}

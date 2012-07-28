@@ -18,7 +18,7 @@
 												
 						<?php while (next_image()): ?>
 						<?php $image_number = $image_number + 1; ?>
-							<div id="full-image-<?php echo $image_number; ?>" class="alpha grid_8 suffix_1 omega an-image">
+							<div id="full-image-<?php echo $image_number; ?>" class="alpha grid_8 suffix_1 omega an-image <?php echo $image_number==1 ? 'top' : ''; ?>">
 								<?php if (($hrv_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
 								<?php if (($hrv_finallink)=='nolink') { printCustomSizedImage(NULL, NULL, 620); } ?>
 								<?php if (($hrv_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
