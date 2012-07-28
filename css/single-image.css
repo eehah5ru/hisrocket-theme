@@ -1,3 +1,7 @@
 #album-title a {
 	color: black;
 }
+
+.album-desc {
+	margin-bottom: 0px;
+}
