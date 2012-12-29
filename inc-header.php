@@ -27,7 +27,8 @@
 				});
 				
 				$('#scrollable-container').css({
-					'width' : result + 500
+					// 'width' : result + 500
+					'width' : result
 				});
 				
 			}
