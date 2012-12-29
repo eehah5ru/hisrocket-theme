@@ -23,7 +23,7 @@
 				var result = 0;
 				
 				$('#scrollable-container').children().each(function() {
-					result += $(this).outerWidth();
+					result += $(this).outerWidth(true);
 				});
 				
 				$('#scrollable-container').css({
@@ -36,7 +36,7 @@
 				var result = 0;
 				
 				$('#scrollable-container').children().each(function() {
-					result += $(this).outerWidth();
+					result += $(this).outerWidth(true);
 				});
 				
 				return result;
@@ -60,7 +60,7 @@
 					setScrollableContainerWidth();					
 					
 					$('.scrollable').css({
-						'width' : $('#scrollable-container').outerWidth()
+						'width' : $('#scrollable-container').outerWidth(true)
 					});
 /*
 				}
