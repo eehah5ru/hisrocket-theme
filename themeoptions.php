@@ -13,6 +13,7 @@ class ThemeOptions {
 	
 	function ThemeOptions() {
 		setOptionDefault('hrsi_homeoption', '');
+		setOptionDefault('hrsi_homepage', '');				
 		setOptionDefault('hrsi_album_thumb_size', 158);
 		setOptionDefault('hrsi_social', true);
 		setOptionDefault('hrsi_switch', false);
@@ -30,6 +31,7 @@ class ThemeOptions {
 	function getOptionsSupported() {
 		return array(	
 			gettext('Home Page Image Option') => array('key' => 'hrsi_homeoption', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the option for the single image on the homepage.  See Image-Album-Statistics plugin or Random Image functions for more information.')),
+			gettext('Home Page ZenPage') => array('key' => 'hrsi_homepage', 'type' => OPTION_TYPE_TEXT, 'desc' => gettext('Choose Zenpage to show on homepage')),			
 			gettext('Final Image Link Option') => array('key' => 'hrsi_finallink', 'type' => OPTION_TYPE_CUSTOM, 'desc' => gettext('Choose the option for the final image link on image.php.  Can either link to full image using standard zenphoto process (with core options), colorbox, or no link (default).')),		
 			gettext('Sidebar Position on the Right?') => array('key' => 'hrsi_switch', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('Check to reverse the sidebar and content area positions.  Default (unchecked) is the sidebar on the left.')),
 			gettext('Use colorbox on Album and Search Pages?') => array('key' => 'hrsi_colorbox', 'type' => OPTION_TYPE_CHECKBOX, 'desc' => gettext('If checked, 2 links appear when hovering images in album and search pages, one to popup the image in colorbox, and the other to go to the details page.')),
@@ -166,6 +168,12 @@ class ThemeOptions {
 				echo ' selected="selected">Album-TopRated</option>\n';
 				} else {
 				echo '>Album-TopRated</option>\n';
+				}
+			echo '<option value="page"';
+				if ($currentValue == "page") { 
+				echo ' selected="selected">Page</option>\n';
+				} else {
+				echo '>Page</option>\n';
 				}
 			echo "</select>\n";
 		}

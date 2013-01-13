@@ -5,6 +5,16 @@
 				<div id="sidebar" class="grid_3 alpha">
 					<?php include ("inc-sidemenu.php"); ?>
 				</div>
+				<?php
+				if (getOption('hrsi_homeoption') == 'page') {
+				?>
+					<div id="post" class="post grid_7 omega suffix_2">
+						<?php printPageContent(getOption('hrsi_homepage')); printCodeblock(1); ?>
+					</div>				
+				<?php
+				}
+				else {
+				?>
 				<div id="image-wrap" class="grid_9 omega">
 					<div class="post album-desc">
 						<h2 class="top">&nbsp;</h2>
@@ -50,7 +60,6 @@
 						break;						
 						} ?>
 						<?php 
-						
 						if ($hrsi_albumorimage == 'image') {
 							printImageStatistic(1,$hrsi_functionoption,'',false,false,false, 0,'',620,NULL,false, false, false, true);
 						} 
@@ -70,6 +79,9 @@
 						} 
 						?>
 					</div>
+					<?php
+					}
+					?>
 				</div>			
 
 <?php include ("inc-footer.php"); ?>			
