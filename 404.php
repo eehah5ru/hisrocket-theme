@@ -7,6 +7,7 @@
 				</div>
 
 			
+			
 				<div class="grid_9 omega">
 					<p><?php echo gettext("The page you are requesting cannot be found."); ?></p>					
 				</div>
