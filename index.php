@@ -6,6 +6,9 @@
 					<?php include ("inc-sidemenu.php"); ?>
 				</div>
 				<div id="image-wrap" class="grid_9 omega">
+					<div class="post album-desc">
+						<h2 class="top">&nbsp;</h2>
+					</div>
 					<div id="full-image" style="display:none">
 						<?php 
 						switch (getOption('hrvb_homeoption')) {
@@ -48,8 +51,9 @@
 						} ?>
 						<?php 
 						
+
 						if ($hrvb_albumorimage == 'image') {
-							printImageStatistic(1,$hrvb_functionoption,'',true,true,false,40,'',535,535,false);
+							printImageStatistic(1,$hrvb_functionoption,'',false,false,false, 0,'',620,NULL,false, false, false, true);
 						} 
 						else if ($hrvb_albumorimage == 'album') {
 							printAlbumStatistic(1,$hrvb_functionoption,true,true,false,40,'',535,535,false);
