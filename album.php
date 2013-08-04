@@ -19,10 +19,10 @@
 						<?php while (next_image()): ?>
 						<?php $image_number = $image_number + 1; ?>
 							<div id="full-image-<?php echo $image_number; ?>" class="alpha grid_8 suffix_1 omega an-image <?php echo $image_number==1 ? 'top' : ''; ?>">
-								<?php if (($hrv_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
-								<?php if (($hrv_finallink)=='nolink') { printCustomSizedImage(NULL, NULL, 620); } ?>
-								<?php if (($hrv_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
-								<?php if (($hrv_finallink)=='standard-new') { ?><a target="_blank" href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
+								<?php if (($hrvb_finallink)=='colorbox') { ?><a class="thickbox" href="<?php echo html_encode(getUnprotectedImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
+								<?php if (($hrvb_finallink)=='nolink') { printCustomSizedImage(NULL, NULL, 620); } ?>
+								<?php if (($hrvb_finallink)=='standard') { ?><a href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
+								<?php if (($hrvb_finallink)=='standard-new') { ?><a target="_blank" href="<?php echo html_encode(getFullImageURL());?>" title="<?php echo getBareImageTitle();?>"><?php printCustomSizedImage(getAnnotatedImageTitle(),620); ?></a><?php } ?>
 							</div>
 
 

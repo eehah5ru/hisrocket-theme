@@ -8,57 +8,57 @@
 				<div id="image-wrap" class="grid_9 omega">
 					<div id="full-image" style="display:none">
 						<?php 
-						switch (getOption('hrv_homeoption')) {
+						switch (getOption('hrvb_homeoption')) {
 							case "album-latest":
-							$hrv_albumorimage = 'album'; $hrv_functionoption = 'latest';
+							$hrvb_albumorimage = 'album'; $hrvb_functionoption = 'latest';
 						break;
 							case "album-latestupdated":
-							$hrv_albumorimage = 'album'; $hrv_functionoption = 'latestupdated';
+							$hrvb_albumorimage = 'album'; $hrvb_functionoption = 'latestupdated';
 						break;
 							case "album-mostrated":
-							$hrv_albumorimage = 'album'; $hrv_functionoption = 'mostrated';
+							$hrvb_albumorimage = 'album'; $hrvb_functionoption = 'mostrated';
 						break;
 							case "album-toprated":
-							$hrv_albumorimage = 'album'; $hrv_functionoption = 'toprated';
+							$hrvb_albumorimage = 'album'; $hrvb_functionoption = 'toprated';
 						break;
 							case "image-latest":
-							$hrv_albumorimage = 'image'; $hrv_functionoption = 'latest';
+							$hrvb_albumorimage = 'image'; $hrvb_functionoption = 'latest';
 						break;
 							case "image-latest-date":
-							$hrv_albumorimage = 'image'; $hrv_functionoption = 'latest-date';
+							$hrvb_albumorimage = 'image'; $hrvb_functionoption = 'latest-date';
 						break;
 							case "image-latest-mtime":
-							$hrv_albumorimage = 'image'; $hrv_functionoption = 'latest-mtime';
+							$hrvb_albumorimage = 'image'; $hrvb_functionoption = 'latest-mtime';
 						break;
 							case "image-popular":
-							$hrv_albumorimage = 'image'; $hrv_functionoption = 'popular';
+							$hrvb_albumorimage = 'image'; $hrvb_functionoption = 'popular';
 						break;
 							case "image-mostrated":
-							$hrv_albumorimage = 'image'; $hrv_functionoption = 'mostrated';
+							$hrvb_albumorimage = 'image'; $hrvb_functionoption = 'mostrated';
 						break;
 							case "image-toprated":
-							$hrv_albumorimage = 'image'; $hrv_functionoption = 'toprated';
+							$hrvb_albumorimage = 'image'; $hrvb_functionoption = 'toprated';
 						break;
 							case "random-daily":
-							$hrv_albumorimage = ''; $hrv_functionoption = 'daily';
+							$hrvb_albumorimage = ''; $hrvb_functionoption = 'daily';
 						break;
 							case "none":
-							$hrv_albumorimage = 'none'; $hrv_functionoption = 'none';
+							$hrvb_albumorimage = 'none'; $hrvb_functionoption = 'none';
 						break;						
 						} ?>
 						<?php 
 						
-						if ($hrv_albumorimage == 'image') {
-							printImageStatistic(1,$hrv_functionoption,'',true,true,false,40,'',535,535,false);
+						if ($hrvb_albumorimage == 'image') {
+							printImageStatistic(1,$hrvb_functionoption,'',true,true,false,40,'',535,535,false);
 						} 
-						else if ($hrv_albumorimage == 'album') {
-							printAlbumStatistic(1,$hrv_functionoption,true,true,false,40,'',535,535,false);
+						else if ($hrvb_albumorimage == 'album') {
+							printAlbumStatistic(1,$hrvb_functionoption,true,true,false,40,'',535,535,false);
 						} 
-						else if ($hrv_albumorimage == 'none') {
+						else if ($hrvb_albumorimage == 'none') {
 							// print nothing
 						}						
 						else {
-							$randomImage = getRandomImages($hrv_functionoption);
+							$randomImage = getRandomImages($hrvb_functionoption);
 							if (is_object($randomImage) && $randomImage->exists) {
 								$randomImageURL = html_encode(getURL($randomImage));
 								$html =  "<img src=\"".html_encode($randomImage->getCustomImage(620, NULL, NULL, NULL, NULL, NULL, NULL, TRUE))."\" alt=\"" . html_encode($randomImage->getTitle()) . "\" />\n";
